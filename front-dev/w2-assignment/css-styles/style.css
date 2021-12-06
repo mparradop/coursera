@@ -20,58 +20,9 @@ header {
     font-weight: bold;
 }
 
-section{
-    position: absolute; 
-    margin: 1px;
-}
-
-
-li{
-    margin-left: 25px;
-    position: relative;
-}
-
-.breakfast-section{
-    border: 3px chocolate solid;
-    margin: 10px; 
-    width: auto;
-    position: relative;
-    top: 0%;
-    /* left: 0%;  */
-    background-color:antiquewhite;   
-}
-
-.lunch-section{
-    border: 3px green solid;
-    margin: 10px;
-    width: auto;
-    position: relative;
-    top: 0;
-    /* left: 25%; */
-      
-}
-
-.dinner-section{
-    border: 3px dimgrey solid;
-    position: relative;
-    /* left: 50%; */
-    top: 0;
-    margin: 10px;
-    width: auto;
-}
-
-.beverages-section{
-    border: 3px navy solid;
-    position: relative;
-    /* left: 75%; */
-    top: 0;
-    margin: 10px;
-    padding: auto;
-    width: auto;
-}
-
 #subheader{
     position: relative;
+    margin-bottom: 10%;
     
 }
 
@@ -81,6 +32,12 @@ li{
     position: absolute;
     font-size: 125%;
     right: 0;
+}
+
+
+li{
+    margin-left: 25px;
+    position: relative;
 }
 
 footer {
@@ -94,6 +51,113 @@ footer {
 Tablet version
 */
 
+@media (min-width: 768px) and (max-width: 991px){
+
+
+
+
+}
+
+
 /*
-Phone version
+Desktop version ======================================================================================================
 */
+
+@media (min-width: 992px){
+    
+    .breakfast-section{
+        border: 3px chocolate solid;
+        margin: 10px; 
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        background-color:antiquewhite;   
+        width: 24%;
+        height: 240px;
+    }
+    
+    .lunch-section{
+        border: 3px green solid;
+        margin: 10px;
+        position: absolute;
+        top: 0%;
+        left: 25%;
+        width: 24%;
+        height: 220px;
+          
+    }
+    
+    .dinner-section{
+        border: 3px dimgrey solid;
+        position: absolute;
+        left: 50%;
+        top: 0%;
+        margin: 10px;
+        width: 24%;
+        height: 220px;
+    }
+    
+    .beverages-section{
+        border: 3px navy solid;
+        position: absolute;
+        left: 75%;
+        top: 0%;
+        margin: 10px;
+        padding: auto;
+        width: 24%;
+        height: 220px;
+        
+    }
+
+    section{
+        position: relative; 
+        padding: 10px;      
+        margin: 10px; 
+
+    }
+    
+}
+
+/*
+Mobile version ======================================================================================================
+*/
+@media (max-width: 767px){
+
+    section{
+        position: absolute; 
+        margin: 1px;
+        width: 100%;
+    }
+    
+    .breakfast-section{
+        border: 3px chocolate solid;
+        margin: 20px;
+        width: 90%;
+        position: relative;
+        background-color:antiquewhite;   
+    }
+    
+    .lunch-section{
+        border: 3px green solid;
+        margin: 20px;
+        width: 90%;
+        position: relative;
+        width: 90%;
+          
+    }
+    
+    .dinner-section{
+        border: 3px dimgrey solid;
+        position: relative;
+        margin: 20px;
+        width: 90%;
+    }
+    
+    .beverages-section{
+        border: 3px navy solid;
+        position: relative;
+        margin: 20px;
+        width: 90%;
+    }
+
+}
