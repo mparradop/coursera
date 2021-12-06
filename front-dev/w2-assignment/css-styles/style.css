@@ -8,6 +8,87 @@ Mobile view should appear only if the width of the browser is equal to or less t
 Basic ones and desktop version 
 */
 
+*{
+    font-family: 'Open Sans', sans-serif;
+    padding: 0%;
+    margin: 0;
+    box-sizing: border-box;
+}
+header {
+    text-align: center;
+    font-size: 175%;
+    font-weight: bold;
+}
+
+section{
+    position: absolute; 
+    margin: 1px;
+}
+
+
+li{
+    margin-left: 25px;
+    position: relative;
+}
+
+.breakfast-section{
+    border: 3px chocolate solid;
+    margin: 10px; 
+    width: auto;
+    position: relative;
+    top: 0%;
+    /* left: 0%;  */
+    background-color:antiquewhite;   
+}
+
+.lunch-section{
+    border: 3px green solid;
+    margin: 10px;
+    width: auto;
+    position: relative;
+    top: 0;
+    /* left: 25%; */
+      
+}
+
+.dinner-section{
+    border: 3px dimgrey solid;
+    position: relative;
+    /* left: 50%; */
+    top: 0;
+    margin: 10px;
+    width: auto;
+}
+
+.beverages-section{
+    border: 3px navy solid;
+    position: relative;
+    /* left: 75%; */
+    top: 0;
+    margin: 10px;
+    padding: auto;
+    width: auto;
+}
+
+#subheader{
+    position: relative;
+    
+}
+
+#subtitle-top{
+    border: 2px black solid;
+    width: fit-content;
+    position: absolute;
+    font-size: 125%;
+    right: 0;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+
+}
+
 
 /*
 Tablet version
