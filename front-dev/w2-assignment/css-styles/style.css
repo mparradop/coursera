@@ -9,10 +9,11 @@ Basic ones and desktop version
 */
 
 *{
-    font-family: 'Open Sans', sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 0%;
     margin: 0;
     box-sizing: border-box;
+    font-size: 100%;
 }
 header {
     text-align: center;
@@ -22,30 +23,36 @@ header {
 
 #subheader{
     position: relative;
-    margin-bottom: 10%;
+    margin-bottom: 12px;
     
 }
 
 #subtitle-top{
     border: 2px black solid;
-    width: fit-content;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 3px;
+   
     position: absolute;
-    font-size: 125%;
+    font-size: 135%;
     right: 0;
+    width: max-content;
+
 }
 
 
 li{
     margin-left: 25px;
     position: relative;
+    font-size: 120%;
+    width: max-content;
 }
 
 footer {
     position: absolute;
-    bottom: 0;
-
+    bottom: 0%;
+    
 }
-
 
 /*
 Tablet version
@@ -53,11 +60,60 @@ Tablet version
 
 @media (min-width: 768px) and (max-width: 991px){
 
+    .breakfast-section{
+        border: 3px chocolate solid;
+        margin: 10px; 
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        background-color:antiquewhite;   
+        width: 48%;
+        height: 260px;
+        overflow-y: auto;
+    }
+    
+    .lunch-section{
+        border: 3px green solid;
+        position: relative;
+        top: 0%;
+        left: 50%;
+        width: 48%;
+        height: 260px;
+        overflow-y: auto;
+          
+    }
+    
+    .dinner-section{
+        border: 3px dimgrey solid;        
+        position: relative;
+        margin-top: 10px;
+        width: 98%;
+        height: 220px;
+        overflow-y: auto;
+    }
+    
+    .beverages-section{
+        border: 3px navy solid;
+        position: relative;
+        margin-top: 10px;
+        padding: auto;
+        width: 98%;
+        height: 220px;
+        overflow-y: auto;
+        
+    }
+
+    section{
+        position: relative; 
+        padding: 10px;      
+        margin: 10px; 
+
+    }
+
 
 
 
 }
-
 
 /*
 Desktop version ======================================================================================================
@@ -74,6 +130,7 @@ Desktop version ================================================================
         background-color:antiquewhite;   
         width: 24%;
         height: 240px;
+        overflow-y: auto;
     }
     
     .lunch-section{
@@ -84,6 +141,7 @@ Desktop version ================================================================
         left: 25%;
         width: 24%;
         height: 220px;
+        overflow-y: auto;
           
     }
     
@@ -95,6 +153,7 @@ Desktop version ================================================================
         margin: 10px;
         width: 24%;
         height: 220px;
+        overflow-y: auto;
     }
     
     .beverages-section{
@@ -106,6 +165,7 @@ Desktop version ================================================================
         padding: auto;
         width: 24%;
         height: 220px;
+        overflow-y: auto;
         
     }
 
