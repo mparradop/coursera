@@ -1,4 +1,5 @@
 /*
+Instructions: 
 The browser should display a desktop version of the site when the width of the browser window is 992px and above. 
 Tablet view should appear only if the width of the browser window is between 768px and 991px, inclusively. 
 Mobile view should appear only if the width of the browser is equal to or less than 767px.
@@ -16,11 +17,61 @@ Basic ones and desktop version
     font-size: 100%;
 }
 header {
+    padding-top: 10%; 
+    padding-bottom: 2%;
     text-align: center;
-    font-size: 175%;
+    font-size: 200%;
     font-weight: bold;
+    color: #5f4339;
+
 }
 
+li{
+    margin-left: 25px;
+    position: relative;
+    font-size: 120%;
+    width: max-content;
+}
+
+li:hover{
+    color: #E55934;
+}
+
+footer {
+    position: absolute;/*some improvement is required to place this footer properly on mobile size  */
+    bottom: 0%;
+    
+}
+
+body{
+    background-color:whitesmoke;
+}
+/*for each section, a different color is defined. Here combining selectors are used. 
+In this case, descendant selector is handy*/
+.breakfast-section h2{
+    background-color:#c6a700 ;
+    color: #000000;
+}
+
+.lunch-section h2{
+    background-color: #FA7921;
+    color: #ffffff;
+}
+
+.dinner-section h2{
+    background-color: #5f4339;
+    color: #ffffff;
+}
+
+.beverages-section h2{
+    background-color: #5BC0EB;
+    color: #ffffff;
+}
+/*For this css style, a box-model is used, specifically relative and absolute positions
+In order to get the get the requested layout, divs were created and configured to have a relative position and paragraphs 
+and other elements with absolute positioning. 
+Considering always a parent element configured with relative positioning to have child elements placed
+*/
 #subheader{
     position: relative;
     margin-bottom: 12px;
@@ -32,73 +83,58 @@ header {
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 3px;
-   
     position: absolute;
     font-size: 135%;
     right: 0;
     width: max-content;
-
 }
 
-
-li{
-    margin-left: 25px;
-    position: relative;
-    font-size: 120%;
-    width: max-content;
-}
-
-footer {
-    position: absolute;
-    bottom: 0%;
-    
-}
+/*Below, media queries are set to aim mobile, tablet and desktop screens */
 
 /*
-Tablet version
+Tablet version =============================================================================================================
 */
 
 @media (min-width: 768px) and (max-width: 991px){
 
     .breakfast-section{
-        border: 3px chocolate solid;
+        border: 3px black solid;
         margin: 10px; 
         position: absolute;
         top: 0%;
-        left: 0%;
-        background-color:antiquewhite;   
+        left: 0%;  
         width: 48%;
-        height: 260px;
+        height: 280px;
         overflow-y: auto;
     }
     
     .lunch-section{
-        border: 3px green solid;
+        border: 3px black solid;
         position: relative;
         top: 0%;
         left: 50%;
         width: 48%;
-        height: 260px;
+        height: 280px;
         overflow-y: auto;
           
     }
     
     .dinner-section{
-        border: 3px dimgrey solid;        
+        border: 3px black solid;        
         position: relative;
         margin-top: 10px;
         width: 98%;
-        height: 220px;
+        height: 280px;
         overflow-y: auto;
     }
     
     .beverages-section{
-        border: 3px navy solid;
+        border: 3px black solid;
         position: relative;
         margin-top: 10px;
         padding: auto;
         width: 98%;
-        height: 220px;
+        height: 280px;
         overflow-y: auto;
         
     }
@@ -109,62 +145,57 @@ Tablet version
         margin: 10px; 
 
     }
-
-
-
-
 }
 
 /*
-Desktop version ======================================================================================================
+Desktop version ============================================================================================================
 */
 
 @media (min-width: 992px){
     
     .breakfast-section{
-        border: 3px chocolate solid;
+        border: 3px black solid;
         margin: 10px; 
         position: absolute;
         top: 0%;
         left: 0%;
-        background-color:antiquewhite;   
         width: 24%;
-        height: 240px;
+        height: 280px;
         overflow-y: auto;
     }
     
     .lunch-section{
-        border: 3px green solid;
+        border: 3px black solid;
         margin: 10px;
         position: absolute;
         top: 0%;
         left: 25%;
         width: 24%;
-        height: 220px;
+        height: 280px;
         overflow-y: auto;
           
     }
     
     .dinner-section{
-        border: 3px dimgrey solid;
+        border: 3px black solid;
         position: absolute;
         left: 50%;
         top: 0%;
         margin: 10px;
         width: 24%;
-        height: 220px;
+        height: 280px;
         overflow-y: auto;
     }
     
     .beverages-section{
-        border: 3px navy solid;
+        border: 3px black solid;
         position: absolute;
         left: 75%;
         top: 0%;
         margin: 10px;
         padding: auto;
         width: 24%;
-        height: 220px;
+        height: 280px;
         overflow-y: auto;
         
     }
@@ -179,7 +210,7 @@ Desktop version ================================================================
 }
 
 /*
-Mobile version ======================================================================================================
+Mobile version ============================================================================================================
 */
 @media (max-width: 767px){
 
@@ -190,15 +221,14 @@ Mobile version =================================================================
     }
     
     .breakfast-section{
-        border: 3px chocolate solid;
+        border: 3px black solid;
         margin: 20px;
         width: 90%;
         position: relative;
-        background-color:antiquewhite;   
     }
     
     .lunch-section{
-        border: 3px green solid;
+        border: 3px black solid;
         margin: 20px;
         width: 90%;
         position: relative;
@@ -207,14 +237,14 @@ Mobile version =================================================================
     }
     
     .dinner-section{
-        border: 3px dimgrey solid;
+        border: 3px black solid;
         position: relative;
         margin: 20px;
         width: 90%;
     }
     
     .beverages-section{
-        border: 3px navy solid;
+        border: 3px black solid;
         position: relative;
         margin: 20px;
         width: 90%;
