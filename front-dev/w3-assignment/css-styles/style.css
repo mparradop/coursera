@@ -1,8 +1,330 @@
+/*
+Instructions: 
+The browser should display a desktop version of the site when the width of the browser window is 992px and above. 
+Tablet view should appear only if the width of the browser window is between 768px and 991px, inclusively. 
+Mobile view should appear only if the width of the browser is equal to or less than 767px.
+/*
+
+/*
+Basic ones and desktop version 
+*/
+
 *{
-    background-color: black;
-    color: aliceblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0%;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 100%;
 }
 
-h1{
-    font-size: large;
+
+a{
+    text-decoration: none;
+}
+
+li{
+    margin-left: 25px;
+    position: relative;
+    font-size: 120%;
+    width: max-content;
+}
+
+li:hover{
+    color: #E55934;
+}
+
+footer {
+    position: absolute;/*some improvement is required to place this footer properly on mobile size  */
+    bottom: 0%;
+    
+}
+
+body{
+    background-color:whitesmoke;
+}
+
+#header-nav{
+    background-color: gray;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    border-color: #000000;
+    border-style: solid;
+
+}
+
+.container{
+    margin: 3px;
+    position: relative;
+}
+
+.navbar-header{
+    position: relative;
+    top: 3%;
+    left: 3%;
+    bottom: 3%;
+}
+
+.navbar-header a {
+    text-decoration: none;
+}
+
+.navbar-header h1{
+    color: #000000;
+    font-size: 200%;
+    display: inline-block;
+}
+
+.header-list{
+    position: absolute;
+    left: 33%;
+    top: 3%;
+    font-size: larger;
+}
+/* here we convert the list to be shown as a horizontal one. (elements list item nested or founded below the element tagged 
+wit the class header list will receive this property values */
+.header-list li{
+    display: inline-block;
+}
+
+.navbar-toggle{
+    height: 30px;
+    width: 30px;
+    border: 3px solid black;
+    border-radius: 30%;
+    position: absolute; 
+    top: 3%;
+    left: 90%;
+    cursor: pointer;
+    /* TODO: Find out how to fix it the right space based on percentage from rightest border on tablet view */
+}
+
+.navbar-toggle:hover{
+    background-color: #c6a700;
+}
+
+.nav-drawer{
+    /* TODO: Add the lines inside the navbar-toggle */
+    color: green;
+}
+
+
+/*for each section, a different color is defined. Here combining selectors are used. 
+In this case, descendant selector is handy*/
+.breakfast-section h2{
+    background-color:#c6a700 ;
+    color: #000000;
+}
+
+.lunch-section h2{
+    background-color: #FA7921;
+    color: #ffffff;
+}
+
+.dinner-section h2{
+    background-color: #5f4339;
+    color: #ffffff;
+}
+
+.beverages-section h2{
+    background-color: #5BC0EB;
+    color: #ffffff;
+}
+/*For this css style, a box-model is used, specifically relative and absolute positions
+In order to get the get the requested layout, divs were created and configured to have a relative position and paragraphs 
+and other elements with absolute positioning. 
+Considering always a parent element configured with relative positioning to have child elements placed
+*/
+#subheader{
+    position: relative;
+    margin-bottom: 12px;
+    
+}
+
+#subtitle-top{
+    border: 2px black solid;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 3px;
+    position: absolute;
+    font-size: 135%;
+    right: 0;
+    width: max-content;
+}
+
+/*Below, media queries are set to aim mobile, tablet and desktop screens */
+
+/*
+Tablet version =============================================================================================================
+*/
+
+@media (min-width: 768px) and (max-width: 991px){
+
+    .breakfast-section{
+        border: 3px black solid;
+        margin: 10px; 
+        position: absolute;
+        top: 0%;
+        left: 0%;  
+        width: 48%;
+        height: 280px;
+        overflow-y: auto;
+    }
+    
+    .lunch-section{
+        border: 3px black solid;
+        position: relative;
+        top: 0%;
+        left: 50%;
+        width: 48%;
+        height: 280px;
+        overflow-y: auto;
+          
+    }
+    
+    .dinner-section{
+        border: 3px black solid;        
+        position: relative;
+        margin-top: 10px;
+        width: 98%;
+        height: 280px;
+        overflow-y: auto;
+    }
+    
+    .beverages-section{
+        border: 3px black solid;
+        position: relative;
+        margin-top: 10px;
+        padding: auto;
+        width: 98%;
+        height: 280px;
+        overflow-y: auto;
+        
+    }
+
+    section{
+        position: relative; 
+        padding: 10px;      
+        margin: 10px; 
+
+    }
+/* on this media query, the menu list will be hidden */
+    .header-list{
+        display: none;
+    }
+}
+
+/*
+Desktop version ============================================================================================================
+*/
+
+@media (min-width: 992px){
+    
+    .breakfast-section{
+        border: 3px black solid;
+        margin: 10px; 
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 24%;
+        height: 280px;
+        overflow-y: auto;
+    }
+    
+    .lunch-section{
+        border: 3px black solid;
+        margin: 10px;
+        position: absolute;
+        top: 0%;
+        left: 25%;
+        width: 24%;
+        height: 280px;
+        overflow-y: auto;
+          
+    }
+    
+    .dinner-section{
+        border: 3px black solid;
+        position: absolute;
+        left: 50%;
+        top: 0%;
+        margin: 10px;
+        width: 24%;
+        height: 280px;
+        overflow-y: auto;
+    }
+    
+    .beverages-section{
+        border: 3px black solid;
+        position: absolute;
+        left: 75%;
+        top: 0%;
+        margin: 10px;
+        padding: auto;
+        width: 24%;
+        height: 280px;
+        overflow-y: auto;
+        
+    }
+
+    section{
+        position: relative; 
+        padding: 10px;      
+        margin: 10px; 
+
+    }
+/* on this media query, the menu list will be hidden as well as in tablet screen size */
+    .navbar-toggle{
+        display: none;        
+    }
+
+    
+    
+}
+
+/*
+Mobile version ============================================================================================================
+*/
+@media (max-width: 767px){
+
+    section{
+        position: absolute; 
+        margin: 1px;
+        width: 100%;
+    }
+    
+    .breakfast-section{
+        border: 3px black solid;
+        margin: 20px;
+        width: 90%;
+        position: relative;
+    }
+    
+    .lunch-section{
+        border: 3px black solid;
+        margin: 20px;
+        width: 90%;
+        position: relative;
+        width: 90%;
+          
+    }
+    
+    .dinner-section{
+        border: 3px black solid;
+        position: relative;
+        margin: 20px;
+        width: 90%;
+    }
+    
+    .beverages-section{
+        border: 3px black solid;
+        position: relative;
+        margin: 20px;
+        width: 90%;
+    }
+
+    .header-list{
+        display: none;
+    }
+}
+
 }
