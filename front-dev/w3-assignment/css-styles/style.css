@@ -33,11 +33,7 @@ li:hover{
     color: #E55934;
 }
 
-footer {
-    /*some improvement is required to place this footer properly on mobile size  */
-    bottom: 0%;
-    float: left;
-    
+  
 }
 
 body{
@@ -50,7 +46,7 @@ header{
     margin-right: -10px;
     top: 0%;
     float: left;
-    /* position: fixed */ 
+    position: fixed 
     /* TODO: find out a better solution for this and avoid overlapping */
 
 }
@@ -168,17 +164,25 @@ Considering always a parent element configured with relative positioning to have
 TODO: Identify a better solution around the sticky/fixed position on the header to avoid overlapping with following sections.
 */
 .menu-section{ 
-    /* top: 90px; 90 px down */
+     top: 90px; /*90 px down */
     float: left;
     position: relative;
 }
 .second-section{
     position: relative;
+    top: 90px; /*90 px down one more */
     float: left;
     margin: 10px;
     width: 100%;
 }
 
+footer {
+    /*some improvement is required to place this footer properly on mobile size  */
+    bottom: 0%;
+    float: left;
+    position: relative;
+    top: 90px; /*90 px down one more for each additional section??? Ugly */
+}
 
 
 /*Below, media queries are set to aim mobile, tablet and desktop screens */
