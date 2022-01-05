@@ -24,13 +24,19 @@ a{
 
 li{
     margin-left: 25px;
-    position: relative;
     font-size: 120%;
     width: max-content;
+    transition-duration: 1s;
+    transition-timing-function: 0.6s;
+    
+
 }
 
 li:hover{
-    color: #E55934;
+    
+    text-decoration: underline;
+    text-decoration-color: #FA7921;
+    
 }
 
   
@@ -40,177 +46,112 @@ body{
     background-color:whitesmoke;
 }
 
-header{
-    width: 100%;
-    margin-left: -10px;
-    margin-right: -10px;
-    top: 0%;
-    float: left;
-    position: relative;
-    
-    /* TODO: find out a better solution for this and avoid overlapping */
 
-}
-
-.header-nav{
-    background-color: gray;
-    padding-top: 25px;
-    padding-bottom: 10px;
-    border-color: #000000;
-    border-style: solid;
-    width: 100%;    
-    top: 0%;
-    position: fixed;
-}
-
-.container{
-    margin: 3px;
-    top: 0%;
-    position: relative; /* :D the pivot point where every element included will have an absolute or relative position*/
-    z-index: 1;
-    display: grid; 
+#grid{
+    display: grid;
     grid-template-columns: auto auto auto;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+
+nav{
+    position: absolute;
+    /* background: gray; */
+    width: 100%;
+    margin: -2px;
+    left:0;
+    top: 50%;
+    text-align: center;
+    display: none;
+}
+
+nav ul{
+    margin: 0%;
+    padding: 0%;
+    list-style: none;
     
 }
 
-.navbar-header{
-    position: relative;
-    top: 3%;
-    left: 3%;
-    bottom: 3%;
+nav li{
+    margin-left: 40%;
+    text-align: center;
+      
 }
 
-.navbar-header a {
+nav a{
+    color: #c6a700;
     text-decoration: none;
+    font-size: 1.2rem;
 }
+
+nav a:hover{
+    color: #c6a700;
+}
+
+   
+header{
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background-color: gray;
+    display: block;
+    
+}
+
+
+header input:checked ~ nav{
+    display: inline;
+    list-style-type: none;
+    background-color: gray;
+  
+
+}
+
 
 .navbar-header h1{
-    color: #000000;
-    font-size: 200%;
-    display: inline-block;
-}
-
-.header-list{
-    position: absolute;
-    left: 33%;
-    top: 3%;
-    font-size: larger;
-}
-/* here we convert the list to be shown as a horizontal one. (elements list item nested or founded below the element tagged 
-wit the class header list will receive this property values */
-.header-list li{
     display: inline-block;
 }
 
 .navbar-toggle{
-    display: block;
-    position: absolute; /*absolute, out of the flow of the container which has a relative position */
-    top: 0%;
-    left: 92%;
-    z-index: 1; /*placed on the first layer from an z axis (x width,y height, z depth), behaving like the base of the hamburguer*/
-    user-select: none;
-    
-}
-   
-    /* TODO: Find out how to fix it the right space based on percentage from rightest border on tablet view */
-.navbar-toggle input{
-      display: block;
-      width: 42px;
-      height: 30px;
-      left: -5px; /*as this input is on top of the input rectangled element and it's floating, we need to move it a 
-      little from left and top to make them fit*/
-      top: -2px;
-      position: absolute;
-      cursor: pointer;
-      opacity: 0; /* hide the input rectangled element created, just to see only the span underneath */
-      z-index: 2; /* and place it over the hamburger */
-   
+    display: none;
 }
 
-.navbar-toggle span{
+.navbar-toggle-label{
+    position: absolute;
+    
+    left: 90%;
+    width: 33px;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+.navbar-toggle-label span, 
+.navbar-toggle-label span::before,
+.navbar-toggle-label span::after{
     display: block;
+    position: relative;
     width: 33px;
     height: 4px;
-    margin-bottom: 5px;
-    position: relative;  /*relative to the nav-toggle which has an absolute position */
-    background: #c6a700;
     border-radius: 3px;
-    z-index: 1;
-    
-    transform-origin: 4px 0px;
-    
-    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-                opacity 1s ease-out;
-}
-
-.navbar-toggle span:first-child{
-    transform-origin: 0% 0%;
-}
-
-.navbar-toggle span:nth-last-child(2){
-  transform-origin: 0% 1%;
-}
-
-.navbar-toggle input:checked ~ span{ 
-    /*~ explanation: Selects every <span> element that is preceded by a <input> element with a checked state
- */
-  opacity: 1;
-  transform: rotate(5deg) translate(-2px, -1px); 
-  background: #ffffff;
-}
-
-.navbar-toggle input:checked ~ ul{
-    display: inline;
-    list-style-type: none;
-    background-color: gray;
-    
-    background-blend-mode: luminosity;
-    transform: translate(-200px,0);
-
-}
-
-
-
-
-.navbar-toggle input:checked ~ span:nth-last-child(3)
-{
-  opacity: 0;
-  transform: rotate(0deg) scale(0.2, 0.2);
-}
-
-
-.navbar-toggle input:checked ~ span:nth-last-child(2)
-{
-  transform: rotate(-45deg) 
-  /* two-dimensional transformation is applied to an element through the 'transform' property.
-  Here css transforms the first last (visually the third one) span element and apply a rotation of -45 degrees and 
-  translate it (move it) -2px. looking the first part of a cross
-  
-  */
-}
-
-.navbar-toggle input:checked ~ span:nth-last-child(4){
-    transform: rotate(45deg) translate(0px, -3px);
-    /* here we do smthg similar but on the other direction to build the second part of the cross */
-
-}
-.hamburguer-menu{
-    position: absolute;
-    width: 300px;
-    margin: -100px 0 0 -50px;
-    padding: 50px;
-    padding-top: 125px;
-    transform-origin: 0% 0%;
-    transform: translate(200%, 0);
+    background-color: #ffffff;
     
 }
 
-.navbar-toggle input:checked ~ ul{
-    transform: translate(-150%, 0);
+.navbar-toggle-label span::before,
+.navbar-toggle-label span::after{
+    content: '';
 }
 
+.navbar-toggle-label span::before{
+    bottom: 9px; 
+}
 
+.navbar-toggle-label span::after{
+    top: 6px;
+}
 
 /*for each section, a different color is defined. Here combining selectors are used. 
 In this case, descendant selector is handy*/
@@ -240,9 +181,7 @@ and other elements with absolute positioning.
 Considering always a parent element configured with relative positioning to have child elements placed
 */
 #subheader{
-    position: relative;
-    margin-bottom: 12px;
-    
+    margin-bottom: 12px;   
 }
 
 #subtitle-top{
@@ -250,7 +189,6 @@ Considering always a parent element configured with relative positioning to have
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 3px;
-    position: absolute;
     font-size: 135%;
     right: 0;
     width: max-content;
@@ -259,15 +197,16 @@ Considering always a parent element configured with relative positioning to have
 TODO: Identify a better solution around the sticky/fixed position on the header to avoid overlapping with following sections.
 */
 .menu-section{ 
-    top: 90px; /*90 px down */
-    float: left;
-    position: relative;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
     width: 100%;
+    max-height: fit-content;
 }
 .second-section{
-    position: relative;
-    top: 90px; /*90 px down one more */
-    float: left;
+    grid-column-start: 1;
+    grid-column-end: 4; 
+    grid-row-start: 3; 
     margin: 10px;
     width: 100%;
 }
@@ -327,11 +266,7 @@ Tablet version =================================================================
         overflow-y: auto;
         
     }
-/* on this media query, the menu list will be hidden */
-    .header-list{
-        display: none;
-    }
-    
+
 }
 
 /*
@@ -435,9 +370,6 @@ Mobile version =================================================================
         float: left;
     }
 
-    .header-list{
-        display: none;
-    }
     
 }
 
