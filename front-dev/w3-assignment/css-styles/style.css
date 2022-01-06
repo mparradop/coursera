@@ -22,24 +22,22 @@ a{
     text-decoration: none;
 }
 
-li{
+.ul-options li{
+    text-decoration: none;
+    list-style: none;
     margin-left: 25px;
     font-size: 120%;
     width: max-content;
-    transition-duration: 1s;
-    transition-timing-function: 0.6s;
-    
-
+    transition-duration: 1.2s;
+    transition-timing-function: 0.8s;
 }
 
-li:hover{
-    
-    text-decoration: underline;
-    text-decoration-color: #FA7921;
-    
-}
+.ul-options li:hover{
+    transform: scale(125%);
+    transition-duration: 0.6s;
+    transition-timing-function: 0.2s;
 
-  
+}
 
 
 body{
@@ -54,58 +52,62 @@ body{
     row-gap: 20px;
 }
 
+.header-title {
+    color: #000000;
+    text-decoration: none;
+    font-size: 2em;
+    margin: 25px 0 25px 25px;
+
+
+}
+
+
 
 nav{
-    position: absolute;
-    /* background: gray; */
+    grid-column: 2/3;
+    position: relative;
     width: 100%;
-    margin: -2px;
     left:0;
-    top: 50%;
     text-align: center;
     display: none;
 }
 
-nav ul{
-    margin: 0%;
-    padding: 0%;
-    list-style: none;
-    
-}
-
-nav li{
-    margin-left: 40%;
-    text-align: center;
-      
-}
 
 nav a{
-    color: #c6a700;
+    color: black;
     text-decoration: none;
-    font-size: 1.2rem;
-}
+    font-size: 1.5em;
+    opacity: 0;
+} 
 
 nav a:hover{
-    color: #c6a700;
+    color: brown;
 }
 
    
 header{
-    position: fixed;
+    display: grid;
+    grid-template-columns: auto auto auto;
     width: 100%;
-    height: 50px;
+    height: auto;
     background-color: gray;
-    display: block;
     
 }
 
-
-header input:checked ~ nav{
+.navbar-toggle:checked ~ nav{
+    grid-column: 1/4;
+    grid-row: 4;
     display: inline;
     list-style-type: none;
-    background-color: gray;
-  
+    background-color: white;
+    text-align: center;
+    
+} 
 
+
+.navbar-toggle:checked ~  nav a{
+    opacity: 1;
+    
 }
 
 
@@ -118,14 +120,12 @@ header input:checked ~ nav{
 }
 
 .navbar-toggle-label{
-    position: absolute;
-    
-    left: 90%;
+    grid-column: 3/4;
+    left: 70%;
+    position: relative;
+    top: 30%; 
     width: 33px;
-    height: 100%;
-
-    display: flex;
-    align-items: center;
+    height: 20px;
 }
 
 .navbar-toggle-label span, 
@@ -134,7 +134,7 @@ header input:checked ~ nav{
     display: block;
     position: relative;
     width: 33px;
-    height: 4px;
+    height: 2px;
     border-radius: 3px;
     background-color: #ffffff;
     
@@ -146,11 +146,15 @@ header input:checked ~ nav{
 }
 
 .navbar-toggle-label span::before{
-    bottom: 9px; 
+    bottom: 6px; 
 }
 
 .navbar-toggle-label span::after{
     top: 6px;
+}
+
+.navbar-toggle:checked ~ span{
+    transform: rotate(45deg);
 }
 
 /*for each section, a different color is defined. Here combining selectors are used. 
@@ -175,10 +179,22 @@ In this case, descendant selector is handy*/
     color: #ffffff;
 }
 
+#link-top{
+    font-size: 1.2em;
+    
+}
+
+#link-top:hover{
+    color: darkgreen;
+}
+
 /*For this css style, a box-model is used, specifically relative and absolute positions
 In order to get the get the requested layout, divs were created and configured to have a relative position and paragraphs 
 and other elements with absolute positioning. 
 Considering always a parent element configured with relative positioning to have child elements placed
+------- ------------
+Another layout w/grid, for main sections, menu and second section
+
 */
 #subheader{
     margin-bottom: 12px;   
@@ -193,9 +209,7 @@ Considering always a parent element configured with relative positioning to have
     right: 0;
     width: max-content;
 }
-/* a complete menu section had to be created to wrap all the sub-sections in order push down the layout. 
-TODO: Identify a better solution around the sticky/fixed position on the header to avoid overlapping with following sections.
-*/
+
 .menu-section{ 
     grid-column-start: 1;
     grid-column-end: 4;
@@ -212,11 +226,11 @@ TODO: Identify a better solution around the sticky/fixed position on the header 
 }
 
 footer {
-    /*some improvement is required to place this footer properly on mobile size  */
+    
     bottom: 0%;
     float: left;
     position: relative;
-    top: 90px; /*90 px down one more for each additional section??? Ugly */
+    top: 90px; 
 }
 
 
@@ -227,6 +241,7 @@ Tablet version =================================================================
 */
 
 @media (min-width: 768px) and (max-width: 991px){
+
 
     .breakfast-section{
         border: 3px black solid;
@@ -274,6 +289,25 @@ Desktop version ================================================================
 */
 
 @media (min-width: 992px){
+
+    nav{
+        display: contents;
+        
+
+    }
+    nav a{
+        font-size: 1.8rem;
+        opacity: 1;
+    }
+
+    .header-list > li{
+        all: unset;
+        list-style: none;
+        display: contents;
+        margin-top: 25px;
+        display: inline-block;
+        margin-left: 4em;
+    }
   
     .breakfast-section{
         border: 3px black solid;
@@ -324,12 +358,13 @@ Desktop version ================================================================
 
   
 /* on this media query, the menu list will be hidden as well as in tablet screen size */
-    .navbar-toggle{
+    .navbar-toggle-label{
         display: none;        
     }
 
+
     footer {
-        /*some improvement is required to place this footer properly on mobile size  */
+        
         bottom: 0%;
         float: left;
         
