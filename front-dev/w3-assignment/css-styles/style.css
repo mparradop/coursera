@@ -1,10 +1,10 @@
 /*
-Instructions: 
+
 The browser should display a desktop version of the site when the width of the browser window is 992px and above. 
 Tablet view should appear only if the width of the browser window is between 768px and 991px, inclusively. 
 Mobile view should appear only if the width of the browser is equal to or less than 767px.
 /*
-
+/*No bootstrap, only css*/
 /*
 Basic ones and desktop version 
 */
@@ -62,7 +62,6 @@ body{
 }
 
 
-
 nav{
     grid-column: 2/3;
     position: relative;
@@ -70,6 +69,7 @@ nav{
     left:0;
     text-align: center;
     display: none;
+    
 }
 
 
@@ -78,6 +78,7 @@ nav a{
     text-decoration: none;
     font-size: 1.5em;
     opacity: 0;
+    
 } 
 
 nav a:hover{
@@ -95,6 +96,7 @@ header{
 }
 
 .navbar-toggle:checked ~ nav{
+    
     grid-column: 1/4;
     grid-row: 4;
     display: inline;
@@ -107,7 +109,7 @@ header{
 
 .navbar-toggle:checked ~  nav a{
     opacity: 1;
-    
+
 }
 
 
@@ -131,15 +133,18 @@ header{
 .navbar-toggle-label span, 
 .navbar-toggle-label span::before,
 .navbar-toggle-label span::after{
+    
     display: block;
     position: relative;
     width: 33px;
     height: 2px;
     border-radius: 3px;
     background-color: #ffffff;
-    
+    transition-duration: 0.3s; /*this transition is shorter looking for a faster response of having the hamburguer menu again*/
 }
-
+/*
+add content:"" before and after the span founded after the navbar-toggle-label
+*/
 .navbar-toggle-label span::before,
 .navbar-toggle-label span::after{
     content: '';
@@ -153,9 +158,22 @@ header{
     top: 6px;
 }
 
-.navbar-toggle:checked ~ span{
-    transform: rotate(45deg);
+/*
+Here comes the properties and transformations to do the cross. :Before and :after elements are out of the html structure, so this 
+approach locate them as a cross keeping the .ham-slice span as it is.
+*/
+
+.navbar-toggle:checked ~ label .ham-slice::before{
+    transform: rotate(45deg)translate(5px, 5px);
+    transition: transform 0.5s;
 }
+
+.navbar-toggle:checked ~ label .ham-slice::after{
+    transform: rotate(-45deg) translate(5px, -5px);
+    transition: transform 0.5s;
+}
+
+
 
 /*for each section, a different color is defined. Here combining selectors are used. 
 In this case, descendant selector is handy*/
@@ -293,12 +311,14 @@ Desktop version ================================================================
     nav{
         display: contents;
         
+        
 
     }
     nav a{
         font-size: 1.8rem;
         opacity: 1;
     }
+
 
     .header-list > li{
         all: unset;
@@ -407,4 +427,3 @@ Mobile version =================================================================
 
     
 }
-
